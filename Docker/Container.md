@@ -12,9 +12,6 @@ A seguir na figura, podemos validar as diferenças entre a execução de aplicas
 Docker é uma plataforma de software que permite criar, implantar e gerenciar aplicativos em container. 
 
 
-
-
-![container01](/img/container01.png)
 <img src="/img/container01.png" alt="Descrição da Imagem" width="800" height="850">
 
 
