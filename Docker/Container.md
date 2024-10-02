@@ -15,6 +15,6 @@ Docker é uma plataforma de software que permite criar, implantar e gerenciar ap
 
 
 ![container01](/img/container01.png)
-<img src="/img/container01.png" alt="Descrição da Imagem" width="600" height="400">
+<img src="/img/container01.png" alt="Descrição da Imagem" width="800" height="850">
 
 
