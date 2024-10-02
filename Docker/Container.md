@@ -7,8 +7,14 @@ A seguir na figura, podemos validar as diferenças entre a execução de aplicas
 ![Container](/img/container.png)
 
 
+
+
 Docker é uma plataforma de software que permite criar, implantar e gerenciar aplicativos em container. 
 
+
+
+
 ![container01](/img/container01.png)
+<img src="/img/container01.png" alt="Descrição da Imagem" width="300" height="200">
 
 
