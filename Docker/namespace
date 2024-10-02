@@ -1,0 +1,6 @@
+apt install debootstrap
+# cria um sistema de arquivos do debian
+
+debootstrap stable /debian http://deb.debian.org/debian
+
+cd /debian
