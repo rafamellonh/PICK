@@ -18,7 +18,7 @@
     docker container top meu-container
     docker container pause meu-container
     docker container pause meu-container
-    docker container prune
+    docker container prune                  ( remove os containers que nao estão sendo executados)
 
 
 
