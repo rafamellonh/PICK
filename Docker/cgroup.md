@@ -19,3 +19,11 @@ sudo reboot
 cgclassify -g cpu,memory,blkio,devices,freezer:mello 1157
 
 sudo cat /sys/fs/cgroup/cpu/mello/cgroup.procs
+
+cgset -r cpu.cfs_quota_us=1000 mello
+
+cgset -r memory.limit_in_bytes=48m mello
+
+cgget -r memory.limit_in_bytes mello
+
+dd if=/dev/zero of=catota.img bs=8k count=256k
