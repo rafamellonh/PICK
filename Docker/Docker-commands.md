@@ -28,6 +28,8 @@
     docker pull centos:7
     docker container create -ti ubuntu
 
+    docker image build -t meu-nginx:1.0 .
+    docker container run -d -p 8080:80 --name meu-nginx meu-nginx:1.0
     docker stop $(docker ps -q)
     docker rm $(docker ps -aq)
 ``` 
