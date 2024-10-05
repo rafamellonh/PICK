@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Hello World</title>
+    <title>Animated Terminal Hello World</title>
     <style>
         body {
             background-color: #2d2d2d;
@@ -17,15 +17,26 @@
             border-radius: 10px;
             max-width: 600px;
             margin: 0 auto;
-        }
-        .terminal-text {
             white-space: pre-wrap;
+            color: #00ff00;
         }
         .prompt {
             color: #00ff00;
         }
-        .command {
-            color: #ffffff;
+        .command, .output {
+            display: inline-block;
+            white-space: pre-wrap;
+        }
+        .cursor {
+            display: inline-block;
+            background-color: #00ff00;
+            width: 8px;
+            height: 18px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -33,10 +44,49 @@
 
 <div class="terminal">
     <div class="terminal-text">
-        <span class="prompt">user@linux:~$ </span><span class="command">echo "Hello, World!"</span><br>
-        Hello, World!
+        <span class="prompt">user@linux:~$ </span><span class="command" id="command"></span><span class="cursor"></span><br>
+        <span class="output" id="output"></span>
     </div>
 </div>
+
+<script>
+    // Texto que será "digitado"
+    const commandText = 'echo "Hello, World!"';
+    const outputText = 'Hello, World!';
+    
+    // Referências aos elementos
+    const commandElement = document.getElementById('command');
+    const outputElement = document.getElementById('output');
+    const cursorElement = document.querySelector('.cursor');
+    
+    let commandIndex = 0;
+    let outputIndex = 0;
+    
+    // Função para animar a "digitação" do comando
+    function typeCommand() {
+        if (commandIndex < commandText.length) {
+            commandElement.innerHTML += commandText[commandIndex];
+            commandIndex++;
+            setTimeout(typeCommand, 100); // Velocidade de digitação
+        } else {
+            setTimeout(showOutput, 500); // Pausa antes de mostrar o resultado
+        }
+    }
+    
+    // Função para mostrar a saída após o comando
+    function showOutput() {
+        if (outputIndex < outputText.length) {
+            outputElement.innerHTML += outputText[outputIndex];
+            outputIndex++;
+            setTimeout(showOutput, 100);
+        } else {
+            cursorElement.style.display = 'none'; // Esconder o cursor após a digitação
+        }
+    }
+    
+    // Iniciar a animação
+    typeCommand();
+</script>
 
 </body>
 </html>
