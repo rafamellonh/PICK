@@ -29,11 +29,11 @@ EXPOSE 80
 
 # Detalhes
 
-FROM :  indica a imagem a servir como base <br>
-RUN : Lista de comandos que deseja executar na criação da image <br>
-ENV : Define variáveis de ambiente <br>
-LABEL : Adiciona metadata a imagem, como descrição, versão e etc,<br>
-VOLUME :  Define um volume a ser montado no container 
+* FROM :  indica a imagem a servir como base <br>
+* RUN : Lista de comandos que deseja executar na criação da image <br>
+* ENV : Define variáveis de ambiente <br>
+* LABEL : Adiciona metadata a imagem, como descrição, versão e etc,<br>
+* VOLUME :  Define um volume a ser montado no container 
 
 # Buildar a imagem
 
