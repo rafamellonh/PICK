@@ -110,3 +110,35 @@ CMD ["-D", "FOREGROUND"]
 No shell o comando ficaria assim : 
 
 ```  # /usr/sbin/apachectl -D FOREGROUND  ```
+
+# MultiStage
+
+É uma forma de voce fazer que suas imagens fiquem mais performáticas, menores. É a possibilidade de criar uma especie de pipeline em <br>
+nosso dockerfile, podendo ter duas entradas FROM.
+
+```  
+FROM golang:1.18 as buildando
+WORKDIR /app
+COPY . ./
+RUN go mod init hello
+RUN go build -o /app/hello
+
+
+FROM alpine:3.15.9
+COPY --from=buildando /app/hello /app/hello
+CMD ["/app/hello"]
+
+```  
+
+* FROM goland AS buildando : Estamos utilizando a imagem do Golang para criação da imagem de container, e aqui estamos apelidando esse bloco <br>
+como "buildando"
+* ADD : . ./   Adicionando o código de nossa app dentro do container.<br>
+* WORKDIR /app : Definindo que o diretório de trabalho é o "/app", ou seja, quando o container iniciar, estaremos nesse diretório.<br>
+
+* FROM alpine:3.15.9 : Iniciando o segundo bloco e utilizando a imagem do alpine para a criação da imagem de container.<br>
+* COPY --from=buildando /app/hello /app/hello-- : Aqui esta a magica, vamos copiar do bloco chamado buildando um arquivo dentro de <br>
+/app/hello para o diretório /app do container que estamos tratando nesse bloco, ou seja, copiamos o binário que foi compilado no bloco<br>
+anterior e o trouxemos para esse.<br>
+
+CMD ["/app/hello"] : Aqui vamos executar a nossa sensacional app.
+
