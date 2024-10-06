@@ -142,3 +142,10 @@ anterior e o trouxemos para esse.<br>
 
 CMD ["/app/hello"] : Aqui vamos executar a nossa sensacional app.
 
+# ENV
+
+O ENV é utilizado para que possamos criar uma variável de ambiente dentro do container.
+
+# ARG
+
+O ARG é utilizado para criarmos uma variável de ambiente no momento de build

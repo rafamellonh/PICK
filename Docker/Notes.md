@@ -2,7 +2,9 @@
 
 ``` docker login -u USER```
 
+* Fazer o upload(push) da imagem
 
+``` docker push rafamellonh/my-nginx:1.0  ``` 
 
 
 * FROM : Especifica a imagem básica para construir un novo container<br>
