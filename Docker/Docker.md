@@ -15,3 +15,12 @@ Adiciona o usuário no grupo do Docker
 Dockerfile é um script de texto que contém uma serie de instruções usadas pelo docker para criar uma image de container. <br>
 Essas instruções definem o ambiente, as configurações e os comandos necessários para criar um container que possa ser executado <br>
 em qualquer sistema que suporte docker
+
+# EntryPoint
+
+É o principal processo dentro do container
+
+# MultiStage
+
+É uma forma de voce fazer que suas imagens fiquem mais performáticas, menores.
+
