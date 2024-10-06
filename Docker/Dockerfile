@@ -1,6 +1,9 @@
 #Imagem que sera usada no container
 FROM ubuntu:18.04
 
+# SHELL : Define o shell padrao
+SHELL [ "/bin/bash" ]
+
 # Informa alguma info 
 LABEL maintainer="Rafael Mello"
 
@@ -28,6 +31,9 @@ ENTRYPOINT [ "nginx" ]
 
 # Executa um comando quando o container estiver pronto
 CMD [ "-g","daemon off;" ]
+
+# Volume
+VOLUME [ "/dados" ]
 
 # Valida se o container esta saldavel
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 CMD curl -f http://localhost || exit
