@@ -1,15 +1,15 @@
 #Imagem que sera usada no container
 FROM ubuntu:18.04
 
-# SHELL : Define o shell padrao
-SHELL [ "/bin/bash" ]
-
 # Informa alguma info 
 LABEL maintainer="Rafael Mello"
 
 # RUN executa um comando quando a imagem de container esta sendo criada, da RUN executado eh uma camada
 # RUN apt update && apt install nginx -y && rm -rf /var/lib/apt/lists/*
 RUN apt update && apt install nginx curl -y 
+
+# SHELL : Define o shell padrao
+SHELL [ "/bin/bash" ]
 
 # A Porta do container que estara aberta
 EXPOSE 80
