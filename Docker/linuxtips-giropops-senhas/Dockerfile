@@ -1,19 +1,20 @@
-FROM ubuntu
+FROM alpine:3.15.9
 
 LABEL Owner="Rafael Mello"
 
-SHELL [ "/bin/bash" ]
+RUN apk update && apk add --no-cache redis py3-pip python3 git
 
-RUN "git clone https://github.com/badtuxx/giropops-senhas.git"
+RUN git clone https://github.com/badtuxx/giropops-senhas.git
 
-RUN apt update && apt install redis pip -y
+WORKDIR /giropops-senhas
 
-RUN cd giropops-senhas/
+RUN pwd
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV REDIS_HOST=localhost
+ENV REDIS_HOST=127.0.0.1
 
-RUN flask run --host=0.0.0.0
+EXPOSE 5000
 
-EXPOSE 80
+CMD redis-server --daemonize yes && flask run --host=0.0.0.0
+

@@ -20,7 +20,5 @@ em qualquer sistema que suporte docker
 
 É o principal processo dentro do container
 
-# MultiStage
 
-É uma forma de voce fazer que suas imagens fiquem mais performáticas, menores.
 
