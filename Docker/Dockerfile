@@ -6,10 +6,13 @@ LABEL maintainer="Rafael Mello"
 
 # RUN executa um comando quando a imagem de container esta sendo criada, da RUN executado eh uma camada
 # RUN apt update && apt install nginx -y && rm -rf /var/lib/apt/lists/*
-RUN apt update && apt install nginx -y 
+RUN apt update && apt install nginx curl -y 
 
 # A Porta do container que estara aberta
 EXPOSE 80
+
+# Com o ADD podemos pegar arquivos da internet, fazer download, pegar um arquivo compactado
+ADD https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/1936.png /root/node-exporter
 
 # Copia um arquivo para dentro do container
 COPY index.html /var/www/html/
@@ -26,5 +29,7 @@ ENTRYPOINT [ "nginx" ]
 # Executa um comando quando o container estiver pronto
 CMD [ "-g","daemon off;" ]
 
+# Valida se o container esta saldavel
+HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 CMD curl -f http://localhost || exit
 
 
