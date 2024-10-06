@@ -8,8 +8,6 @@ RUN git clone https://github.com/badtuxx/giropops-senhas.git
 
 WORKDIR /giropops-senhas
 
-RUN pwd
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV REDIS_HOST=127.0.0.1
