@@ -2,7 +2,9 @@ FROM ubuntu
 
 LABEL Owner="Rafael Mello"
 
-RUN git clone https://github.com/badtuxx/giropops-senhas.git
+SHELL [ "/bin/bash" ]
+
+RUN "git clone https://github.com/badtuxx/giropops-senhas.git"
 
 RUN apt update && apt install redis pip -y
 
