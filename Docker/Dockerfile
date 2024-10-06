@@ -12,7 +12,7 @@ RUN apt update && apt install nginx curl -y
 EXPOSE 80
 
 # Com o ADD podemos pegar arquivos da internet, fazer download, pegar um arquivo compactado (somente se for da maquina local, da internet so faz o download)
-ADD /home/rafael/consul_exporter-0.12.1.darwin-amd64.tar.gz /root/node-exporter
+ADD consul_exporter-0.12.1.darwin-amd64.tar.gz /root/node-exporter
 
 # Copia um arquivo para dentro do container
 COPY index.html /var/www/html/
