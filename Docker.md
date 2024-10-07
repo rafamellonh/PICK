@@ -1,0 +1,24 @@
+## Install Docker
+
+``` ~$ curl -fsSl https://get.docker.com | bash   ```
+
+To run Docker as a non-privileged user, consider setting up the  <br>
+Docker daemon in rootless mode for your user:  <br>
+
+Adiciona o usuário no grupo do Docker
+
+```  apt-get install -y uidmap ``` <br>
+``` ~$ dockerd-rootless-setuptool.sh install ``` 
+
+## Docker Files
+
+Dockerfile é um script de texto que contém uma serie de instruções usadas pelo docker para criar uma image de container. <br>
+Essas instruções definem o ambiente, as configurações e os comandos necessários para criar um container que possa ser executado <br>
+em qualquer sistema que suporte docker
+
+# EntryPoint
+
+É o principal processo dentro do container
+
+
+
