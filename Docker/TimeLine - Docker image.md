@@ -18,7 +18,7 @@ Apos concluir o build, é possível adicionar tags a uma imagem para facilitar a
 
 Para disponibilizar a imagem em um diretório remoto, é necessário utilizar o comando Docker push, ele envia a imagem para o DockerHub.
 
-### Verificacao de vulnerabilidades :
+### Verificação de vulnerabilidades :
 
 É importante garantir a segurança da imagem antes de disponibiliza-la para uso. Para isso usamos ferramentas como Trivy. Essas ferramentas <br>
 analisam a imagem em busca de componentes com falhar de segurança conhecidas.

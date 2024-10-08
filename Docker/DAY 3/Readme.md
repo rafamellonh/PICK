@@ -6,7 +6,8 @@
 
 ``` 
 
-FROM python:3.11
+#FROM python:3.11
+FROM python:3.11-slim
 
 WORKDIR /app
 COPY requirements.txt .
@@ -25,7 +26,7 @@ CMD [ "flask", "run", "--host=0.0.0.0" ]
 
 Compile a imagem e crie o container<br>
 ``` docker image build -t giropops-senhas:1.0 . ``` <br>
-``` docker container run -d -p 5000:5000 --name giropops-senhas01 giropops-senhas:1.0 ```
+``` docker container run -d -p 5000:5000 --env REDIS_HOST=192.168.1.171 --name giropops-senhas01 giropops-senhas:1.0 ```
 
 Crie um container temporário para o Redis
 
