@@ -31,3 +31,4 @@ em qualquer sistema que suporte docker
 
 Utilizamos vários aplicativos para testar nossas imagens, um exemplo é o Trivy
 
+
