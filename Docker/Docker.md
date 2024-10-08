@@ -1,4 +1,4 @@
-## Install Docker
+##### Install Docker
 
 ``` ~$ curl -fsSl https://get.docker.com | bash   ```
 
@@ -10,17 +10,17 @@ Adiciona o usuário no grupo do Docker
 ```  apt-get install -y uidmap ``` <br>
 ``` ~$ dockerd-rootless-setuptool.sh install ``` 
 
-## Docker Files
+##### Docker Files
 
 Dockerfile é um script de texto que contém uma serie de instruções usadas pelo docker para criar uma image de container. <br>
 Essas instruções definem o ambiente, as configurações e os comandos necessários para criar um container que possa ser executado <br>
 em qualquer sistema que suporte docker
 
-# EntryPoint
+##### EntryPoint
 
 É o principal processo dentro do container
 
-# Distroless [Distroless](/Docker/DAY%203/Distroless-Dockerfile).
+##### Distroless 
 
 [Distroless](/Docker/DAY%203/Distroless-Dockerfile)
 
