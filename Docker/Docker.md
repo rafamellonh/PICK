@@ -22,8 +22,6 @@ em qualquer sistema que suporte docker
 
 ##### Distroless 
 
-[Distroless](/Docker/DAY%203/Distroless-Dockerfile)
-
 É a ideia de nao ter uma imagem base. https://images.chainguard.dev/
 
 
