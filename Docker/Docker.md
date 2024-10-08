@@ -20,5 +20,8 @@ em qualquer sistema que suporte docker
 
 É o principal processo dentro do container
 
+# Distroless 
+
+É a ideia de nao ter uma imagem base. https://images.chainguard.dev/
 
 
