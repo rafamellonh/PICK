@@ -29,6 +29,6 @@ em qualquer sistema que suporte docker
 - [Documentação para Vulnerabilidades ](https://github.com/rafamellonh/PICK/blob/main/Docker/DAY%203/Vulnenabilidades.md)
 
 
-Utilizamos vários aplicativos para testar nossas imagens, um exemplo é o Trivy
+Utilizamos vários aplicativos para testar nossas imagens, um exemplo é o Trivy e o Docker Scout
 
 

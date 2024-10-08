@@ -17,3 +17,8 @@ sudo apt-get install trivy
 
 Para verificar uma imagem : <br>
 ``` trivy image NOME-DA-IMAGEM ```
+
+
+##### Docker Scout
+
+[Fonte](https://docs.docker.com/scout/quickstart/)
