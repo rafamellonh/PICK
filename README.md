@@ -46,7 +46,7 @@ npm install  # ou pip install -r requirements.txt, dependendo do projeto
 npm start    # ou python app.py, dependendo do projeto
 
 
-Contato
+# Contato
 Nome: Seu Nome
 Email: seuemail@exemplo.com
 GitHub: seu-usuario
