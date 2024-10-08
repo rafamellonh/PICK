@@ -2,7 +2,7 @@
 
 * Crie o arquivo Dockerfile para compilar a imagem com as informações do app.
 
-#####Dockerfile
+##### Dockerfile
 
 ``` 
 
