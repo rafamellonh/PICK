@@ -1,0 +1,17 @@
+# https://images.chainguard.dev/
+
+FROM cgr.dev/chainguard/python:latest-dev as buildando
+#FROM python:3.11.4-alpine3.18
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+FROM cgr.dev/chainguard/python:latest
+WORKDIR /app
+COPY --from=buildando /home/nonroot/.local/lib/python3.12/site-packages /home/nonroot/.local/lib/python3.12/site-packages
+COPY app.py .
+COPY templates templates/
+COPY static static/
+
+CMD [ "flask", "run", "--host=0.0.0.0" ]
