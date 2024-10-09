@@ -31,4 +31,6 @@ em qualquer sistema que suporte docker
 
 Utilizamos vários aplicativos para testar nossas imagens, um exemplo é o Trivy e o Docker Scout
 
+##### Assinar as images
 
+Por questões de segurança, podemos assinar nossas imagens com o Cosign.

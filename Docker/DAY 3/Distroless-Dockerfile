@@ -1,6 +1,6 @@
 # https://images.chainguard.dev/
 
-FROM cgr.dev/chainguard/python:latest-dev as buildando
+FROM cgr.dev/chainguard/python:latest-dev AS buildando
 #FROM python:3.11.4-alpine3.18
 
 WORKDIR /app
