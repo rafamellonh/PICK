@@ -33,4 +33,4 @@ Utilizamos vários aplicativos para testar nossas imagens, um exemplo é o Trivy
 
 ##### Assinar as images
 
-Por questões de segurança, podemos assinar nossas imagens com o Cosign.
+Por questões de segurança, podemos assinar nossas imagens com o Cosign.`
