@@ -2,6 +2,8 @@ Diretorio padrao
 
 ``` /var/lib/docker/volumes/ ```  
 
+* Exemplo simples : 
+
 ```
 
 docker run -d \
@@ -17,7 +19,7 @@ docker run -d \
 
 ``` docker run -it --name test-volumes --mount type=bind,source=/home/rafael,target=/teste-volumes,ro debian ```    
 
-##### Versao antiga mas ainda funcional
+##### Versão antiga mas ainda funcional
 
 Essa maneira é muito utilizada quando se quer montar um diretório especifico do host dentro do container. Isso é ruim quando estamos trabalhando com cluster, uma vez que teríamos que garantir esse diretório criado em todos os hosts do cluster.
 
