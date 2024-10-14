@@ -39,3 +39,20 @@ bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr
 * O parâmetro ```--mount``` é o responsável por indicar o volume, que nosso exemplo é o ``` /volume ```, e onde ele sera montando no container. Perceba que, quando passamos o parâmetro ```--mount type=bind,src=/volume,dst=/volume```  , o Docker montou esse diretório no container, proem se nenhum conteúdo.
 
 * Podemos também montar um volume no container linkando-o com um diretório do host ja com algum conteúdo. Para exemplificar, vamos compartilhar o diretório ```/root/primeiro_container ``` , que utilizamos para guardar o nosso primeiro dockerfile, e monta-lo no container em um volume chamado ``` /volume ``` da seguinte forma : 
+
+``` # docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume ubuntu ```
+
+```
+
+root@3d372a410ea2:/# df -h
+Filesystem                   Size Used Avail  Use%  Mounted on
+none                          13G 6.8G  5.3G   57%  /
+tmpfs                        999M    0  999M    0%  /dev
+tmpfs                        999M    0  999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G 6.8G  5.3G   57%  /volume
+shm                           64M    0   64M    0%  /dev/shm
+
+root@3d372a410ea2:/#
+
+```
+
