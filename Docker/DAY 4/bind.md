@@ -25,5 +25,9 @@ Porem, podemos aprender como funciona e utilizar em algum momento, caso se faca 
 
 ``` # mkdir /volume ``` <br>
 ``` docker container run -it --mount type=bind,src=/volume,dst=volume ubuntu ``` <br>
-``` root@7db02e999bf2:/# ls
-bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var volume ```
+
+``` 
+root@7db02e999bf2:/# ls
+bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var volume 
+
+```
