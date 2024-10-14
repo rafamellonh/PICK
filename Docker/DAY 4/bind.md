@@ -101,3 +101,28 @@ mkdir: cannot create directory 'teste': Read-only file system
 root@8d7863b1d9af:/volume#
 
 ```
+
+* Assim como é possivel montar um diretorio como volume, tambem é possivel montar um arquivo : 
+
+```
+# docker container run -ti --mount type=bind,src=/root/primeiro_container/Dockerfile,dst=/Dockerfile ubuntu
+
+root@df0e3e58280a:/# df -h
+
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /Dockerfile
+shm                           64M      0    64M    0%  /dev/shm
+
+root@df0e3e58280a:/# cat Dockerfile
+FROM debian
+RUN /bin/echo "HELLO DOCKER"
+
+root@df0e3e58280a:/#
+
+
+```
+
+* Isso faz com que o arquivo ``` /root/primeiro_dockerfile/dockerfile ``` seja montado em ```/dockerfile/ no container.
