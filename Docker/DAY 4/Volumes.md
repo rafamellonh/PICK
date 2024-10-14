@@ -18,20 +18,7 @@ A principal função do volume é persistir os dados. diferentemente do filesyst
 ##### Tipos de volumes :
 
 #### Bind
- Diretorio padrao
-
-``` /var/lib/docker/volumes/ ```  
-
-```
-
-docker run -d \
-  --name devtest \
-  --mount source=myvol2,target=/app \
-  nginx:latest
-  
-```
-
-``` docker run -it --name test-volumes --mount type=bind,source=/home/rafael,target=/teste-volumes debian ```
+ 
 
 #### Volumes
 
