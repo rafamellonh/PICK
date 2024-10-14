@@ -21,4 +21,4 @@ A principal função do volume é persistir os dados. diferentemente do filesyst
 
 * [Volume](https://github.com/rafamellonh/PICK/blob/main/Docker/DAY%204/volume.md)
 
-* Tmps
+* tmpfs
