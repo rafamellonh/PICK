@@ -1,6 +1,6 @@
 ##### Volumes
 
-![Docs - Docker](https://docs.docker.com/engine/storage/)
+[Docs - Docker](https://docs.docker.com/engine/storage/)
 
 Volumes são diretórios externos ao container, que sao montados diretamente nele, e dessa form bypassam seu filesystem, ou seja, nao seguem aquele padrão de camadas.
 
@@ -21,6 +21,17 @@ A principal função do volume é persistir os dados. diferentemente do filesyst
  Diretorio padrao
 
 ``` /var/lib/docker/volumes/ ```  
+
+```
+
+docker run -d \
+  --name devtest \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+  
+```
+
+``` docker run -it --name test-volumes --mount type=bind,source=/home/rafael,target=/teste-volumes debian ```
 
 #### Volumes
 
