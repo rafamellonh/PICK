@@ -33,3 +33,7 @@ root@7db02e999bf2:/# ls
 bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var volume 
 
 ```
+
+* No exemplo anterior, conhecemos um novo paramentro do conmando ``` docker container run ``` ,  o ``` --mount```
+
+* O parâmetro ```--mount``` é o responsável por indicar o volume, que nosso exemplo é o ``` /volume ```, e onde ele sera montando no container. Perceba que, quando passamos o parâmetro ```--mount type=bind,src=/volume,dst=/volume```  , o Docker montou esse diretório no container, proem se nenhum conteúdo.
