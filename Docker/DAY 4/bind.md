@@ -56,3 +56,48 @@ root@3d372a410ea2:/#
 
 ```
 
+* Com isso, estamos montando o diretorio ``` /root/primeiro_dockerfile ``` do host dentro do container com o nome de  ``` / volume ```
+
+
+* No container
+
+```
+root@3d372a410ea2:/# ls /volume/
+Dockerfile
+
+root@3d372a410ea2:/#
+
+```
+* No host
+
+```
+root@note-ubuntu:~# ls /root/primeiro_dockerfile/
+Dockerfile
+
+root@note-ubuntu:~#
+
+```
+
+* Caso eu queria deixar o volume no container apenas como read-only, é possível. Basta passar o paramento ```ro``` apos o destino onde sera montado o volume.
+
+```
+# docker container run -ti --mount type=bind,src=/root/primeiro_container,dst=/volume,ro ubuntu
+root@8d7863b1d9af:/# df -h
+
+Filesystem                   Size   Used  Avail  Use%  Mounted on
+none                          13G   6.8G   5.3G   57%  /
+tmpfs                        999M      0   999M    0%  /dev
+tmpfs                        999M      0   999M    0%  /sys/fs/cgroup
+/dev/mapper/ubuntu--vg-root   13G   6.8G   5.3G   57%  /volume
+shm                           64M      0    64M    0%  /dev/shm
+
+root@8d7863b1d9af:/# cd /volume/
+root@8d7863b1d9af:/volume# ls
+Dockerfile
+
+root@8d7863b1d9af:/volume# mkdir teste
+mkdir: cannot create directory 'teste': Read-only file system
+
+root@8d7863b1d9af:/volume#
+
+```
