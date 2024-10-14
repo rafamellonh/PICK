@@ -17,8 +17,8 @@ A principal função do volume é persistir os dados. diferentemente do filesyst
 
 ##### Tipos de volumes :
 
-*  [Bind](https://github.com/rafamellonh/PICK/blob/main/Docker/DAY%204/bind.md)
+* [Bind](https://github.com/rafamellonh/PICK/blob/main/Docker/DAY%204/bind.md)
 
-* Volume
+* [Volume](https://github.com/rafamellonh/PICK/blob/main/Docker/DAY%204/volume.md)
 
 * Tmps
