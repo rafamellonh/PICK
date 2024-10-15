@@ -1,6 +1,6 @@
-# 🚀 **Docker Course** 
+# 🚀 **Docker PICK** 
 
-Welcome to the intensive Docker course! Over the next 4 days, we will dive deep into the world of containers, explore the technologies behind Docker, and learn best practices for creating and managing images. Let’s get started! 💪
+Welcome to the intensive Docker course! Over the next X days, we will dive deep into the world of containers, explore the technologies behind Docker, and learn best practices for creating and managing images. Let’s get started! 💪
 
 ---
 
