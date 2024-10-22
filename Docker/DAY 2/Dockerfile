@@ -26,6 +26,9 @@ WORKDIR /var/www/html
 # variaveis de ambiente no container
 ENV APP_VERSION 1.0.0
 
+# define uma variavel que é usada apenas durante a construcao da imagem
+ARG APP_PORT=8080
+
 #Principal processo, se ele parar o container tambem para
 ENTRYPOINT [ "nginx" ]
 
