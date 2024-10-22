@@ -29,11 +29,18 @@ ENV APP_VERSION 1.0.0
 # define uma variavel que é usada apenas durante a construcao da imagem
 ARG APP_PORT=8080
 
-#Principal processo, se ele parar o container tambem para
+#Principal processo, se ele parar o container tambem para, executa um comando de inicializacao do container 
+# pode user um scrip para executar varios acoes
 ENTRYPOINT [ "nginx" ]
 
 # Executa um comando quando o container estiver pronto
 CMD [ "-g","daemon off;" ]
+
+# Criar o usuario que sera usado na opcao USER
+RUN useradd rafaelmello
+
+# Usuario que sera utilisado para executar os processos dentro do container.
+USER rafaelmello
 
 # Volume
 VOLUME [ "/dados" ]
