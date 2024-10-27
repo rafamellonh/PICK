@@ -1,20 +1,13 @@
-FROM ubuntu
-
-RUN NODE_MAJOR=20
-
-RUN apt update && \
-    apt install -y ca-certificates curl gnupg && \
-    mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt update && \
-    apt install -y nodejs
-
-
+FROM node:22-alpine3.19
 
 WORKDIR /app    
-COPY . .
+COPY package*.json .
 
 RUN npm install
+
+COPY . .
+
+EXPOSE 8080
 
 ENTRYPOINT ["node", "server.js"]
 
