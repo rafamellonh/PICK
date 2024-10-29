@@ -37,3 +37,5 @@
 
 docker container run -d -p 80:80 --name giropops-web giropops-web
 docker container run -d -p 80:80 --name giropops-web giropopos-web
+
+docker rm $(docker ps -aq) && docker rmi $(docker images -q)
