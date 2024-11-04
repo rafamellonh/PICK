@@ -1,0 +1,27 @@
+services:
+  giropops-senhas:
+    build: ./Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+    volumes:
+      - strigus:/strigus
+    networks:
+      - giropops
+  
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - strigus:/strigus
+    networks:
+      - giropops
+
+networks:
+  giropops:
+    driver: bridge
+
+volumes:
+  strigus:
