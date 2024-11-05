@@ -14,11 +14,11 @@ services:
       - strigus:/strigus
     depends_on:
       - redis
+    labels:
+      io.senhas.name: "Site-senhas"
+      io.senhas.version: "1.0"
     deploy:
       replicas: 1
-      labels:
-        io.senhas.name: "Site-senhas"
-        io.senhas.version: "1.0"
       update_config:
         parallelism: 1
         delay: 10s
