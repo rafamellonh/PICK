@@ -1,0 +1,124 @@
+services:
+  giropops-senhas:
+    build:
+       context: .
+       dockerfile: Dockerfile
+       # Construcao do container usando o dockerfile localizado no diretorio atual   . 
+#    container_name: giropops-senhas
+
+      # define o nome do container
+    ports:
+      - "5000:5000"
+      #Expoe a porta 5000 do container para porta 5000 da mquina host, permitingo acesso externo a aplicacao
+    
+    environment:
+      - REDIS_HOST=redis
+      #Configura uma variavel de ambiente chamada REDIS_HOST, com valor "redis", referenciando o servico Reis
+    
+    env_file:
+      - .env
+      #Carrega variaveis de ambiente adicionados no arquivo .env
+      
+    volumes:
+      - strigus:/strigus
+      #Monta o volume "Strigus" no diretorio /strigus dentro do container.
+
+    depends_on:
+      - redis
+      #Defin uma dependencia do container redis, garantindo que o servico Redis inicie antes de giropops:senhas
+    
+    labels:
+      io.senhas.name: "Site-senhas"
+      io.senhas.version: "1.0"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      #Configuracao de deploy no Docker Swarm
+      # Replicas "1" define uma instancia do servico
+      # "update_config" controla as atualizacoes com paralelismo de 1 (uma atualizacao por vez) e um atraso de 10 segundos entre as atualizacoes
+    
+      resources:
+        reservations:
+          cpus: '0.25'
+          memory: 128M  
+        limits:
+          cpus: '0.5'
+          memory: 256M  
+       #Especifica recursos reservados e limites para o container
+       #Reserva de 0.25 CPUs e 128 MB de memoria; Reserva de 0.5 CPUs e 256 MB de memoria
+
+      restart_policy:
+         condition: on-failure
+         delay: 5s
+         max_attempts: 3
+       #Define a politica de reinicio
+       #Reinicia o container em caso de falho, com um atraso de 5 segundos, ate 3 tentativas
+
+    dns:
+      - 8.8.8.8
+    #Configura um Servidor DNS especifico
+
+    networks:
+      - giropops
+    #Conecta o servico a uma rede "giropops"
+  
+  redis:
+    image: redis
+    command: redis-server --appendonly yes
+    #Usa a imagem oficial do Redis e executa o comando redis-server com perssistencia de dados ativada
+
+    container_name: giropops-redis
+    #Nome do container Redis, definido como giropops
+
+    ports:
+      - "6379:6379"
+    #Expoem a porta 6379 do redeis no host
+    
+    volumes:
+      - strigus:/strigus
+    #Monta o volume "strigus" no container Redis, possibilitando persistencia de dados
+    
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]        
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    #Configura uma verificacao de saude (helthcheck) para o Redis
+    #Testa a resposta ao comando "ping" via redis-cli; Verifica a cada 30 segundos, com 5s de timeout, ate 3 tentativas
+
+    labels:
+        io.senhas.name: "redis"
+        io.senhas.version: "1.0"
+    #Rotulos personalizados para identificar o Redis e sua versao
+    
+    networks:
+      - giropops
+    # Conecta o serviço Redis à rede "giropops"      
+
+networks:
+  giropops:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+    #Define a rede "giropops" com driver de rede bridge, usando o IPAM padrao com subnet 172.20.0.0/16
+
+    labels:
+        io.senhas.network: "network_giropops"    
+    #Rotulo personalizado para a rede
+
+volumes:
+  strigus:
+    driver: local
+    driver_opts:
+      type: "none"
+      device: /home/rafael/
+    #Volume "strigus" montado a partir do diretorio local /home/rafael
+    
+    labels:
+        io.senhas.volume: "volume_giropops"   
+    #Rotulo personalizado para o volume.
