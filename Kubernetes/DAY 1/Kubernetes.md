@@ -1,7 +1,7 @@
 ## Container engine
 
-* Ele é responsável por gerenciar, executar e orquestrar containers em um sistema. Por é responsável por fazer que tenhamos todo o ambiente </br>
-necessário para a execução de containers.
+* Ele é responsável por gerenciar, executar e orquestrar containers em um sistema. Por é responsável por fazer que tenhamos </br>
+todo o ambiente necessário para a execução de containers.
 
 * Funções do container engine :
     * Execução de container : Cria e gerencia os ciclos de vida dos containers, garantindo seu funcionamento.
