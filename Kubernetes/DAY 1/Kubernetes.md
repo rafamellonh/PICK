@@ -7,3 +7,12 @@
 
 * Isolamento : 
     * Utiliza tecnologias como namespace, chrgroups para garantir que os containers sejam isolados uns dos outros e do sistema.
+
+* Gerenciamento de imagens: 
+    * Permite download, armazenamento em cache e controle de versões de imagens de containers.
+
+* Portabilidade : 
+    * Os containers criados em uma Engine geralmente podem ser executados em qualquer sistema que suportem o mesmo padrão.
+
+* Orquestração e Escalabilidade : 
+    * Trabalha em conjunto com orquestradores como o Kubernetes ou Docker Swarm para gerenciar vários container em diferentes hosts.
