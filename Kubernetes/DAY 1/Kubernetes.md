@@ -22,3 +22,20 @@ todo o ambiente necessário para a execução de containers.
 * Nao se comunica com o Kernel, quem faz essa comunicação é o container runtime.
 
     * Temos o Docker e o Pod
+
+
+## Container Runtime 
+
+* Ele é responsável por criar o container e executar, por se comunicar com o Kernel.
+
+* Ele atua como uma camada que interage diretamente com o sistema operacional e fornece funcionalidades básicas necessárias para </br>
+criar, iniciar, parar e excluir containers.
+
+* Exemplos de containers Runtime : 
+    * runc
+    * containerD
+    * CRI-O
+    * Podman
+    * Kata Containers
+    * gVisor
+    
