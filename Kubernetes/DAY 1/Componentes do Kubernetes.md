@@ -1,3 +1,5 @@
+
+```
                  Usuário (kubectl / API)
                  (Ferramenta para interação com o cluster)
                             ↓
@@ -49,3 +51,4 @@
       │ básica do  │         │ básica do  │         │ básica do  │
       │ Kubernetes)│         │ Kubernetes)│         │ Kubernetes)│
       └────────────┘         └────────────┘         └────────────┘
+```
