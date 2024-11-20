@@ -38,3 +38,6 @@ de controle que monitoram o estado atual do cluster e garantem que ele se ajuste
         * Endpoint controller
         * Namespace controller
         * PersistentVolume controller
+
+
+![Kube](/img/kube-componentes.png)
