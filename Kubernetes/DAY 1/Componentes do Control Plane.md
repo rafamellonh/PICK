@@ -23,3 +23,18 @@ internos do cluster. Ele é cérebro, sem ele o kubernetes nao pode funcionar.
         * Distribuição de carga
     * Executar a decisão de escalonamento
     * Garantir alta performance e eficiência
+
+
+* Kube Controller-manager é um componente central responsável por executar os controladores (ou controllers) do cluster. Esses controllers sao loops </br>
+de controle que monitoram o estado atual do cluster e garantem que ele se ajuste ao estado desejado.
+    * Executa múltiplos controladores
+    * Garante o estado desejado
+    * Gerencia objetos e recursos do cluster
+    * Gerencia vários controladores :
+        * Node controller
+        * Replication controller
+        * Deployment controller
+        * Service account controller
+        * Endpoint controller
+        * Namespace controller
+        * PersistentVolume controller
