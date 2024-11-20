@@ -13,3 +13,6 @@
 * Monitora os Pods e garante a disponibilidade desses Pods, criando ou deletando Pods conforme necessário, para manter o numero desejado de replicas em funcionamento.
 
 ### Service
+* Ele é um recurso que abstrai o acesso a um conjunto de Pods, fornecendo uma maneira estável e confiável de se comunicar com eles, independente de mudanças no cluster.
+* Ele fornece funcionalidades como balanceamento de carga, escalabilidade, abstração de rede.
+* Existe diferentes tipos de Service: ClusterIP, NodePort, LoadBalancer, ExternalName.
