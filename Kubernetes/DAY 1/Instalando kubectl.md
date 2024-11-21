@@ -12,3 +12,7 @@
 * Comandos 
 
 ```  kubectl get nodes ```
+```  kubectl get pods ```
+```  kubectl get namespace ```
+```  kubectl get nodes -n kube-system```
+```  kubectl get nodes -n kube-system -o wide```
