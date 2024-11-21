@@ -1,0 +1,78 @@
+services:
+  giropops-senhas:
+    build:
+       context: .
+       dockerfile: Dockerfile
+#    container_name: giropops-senhas
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+    env_file:
+      - .env
+    volumes:
+      - strigus:/strigus
+    depends_on:
+      - redis
+    labels:
+      io.senhas.name: "Site-senhas"
+      io.senhas.version: "1.0"
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      resources:
+        reservations:
+          cpus: '0.25'
+          memory: 128M  
+        limits:
+          cpus: '0.5'
+          memory: 256M  
+      restart_policy:
+         condition: on-failure
+         delay: 5s
+         max_attempts: 3
+    dns:
+      - 8.8.8.8
+    networks:
+      - giropops
+  
+  redis:
+    image: redis
+    command: redis-server --appendonly yes
+    container_name: giropops-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - strigus:/strigus
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]        
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+        io.senhas.name: "redis"
+        io.senhas.version: "1.0"
+    networks:
+      - giropops
+
+networks:
+  giropops:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+    labels:
+        io.senhas.network: "network_giropops"    
+
+volumes:
+  strigus:
+    driver: local
+    driver_opts:
+      type: "none"
+      device: /home/rafael/
+    labels:
+        io.senhas.volume: "volume_giropops"   
