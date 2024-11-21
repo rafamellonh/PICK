@@ -10,3 +10,29 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 
 ```
+
+* Eh preciso instalar o Docker para usar o Kind.
+
+
+* Criando Cluster
+```
+kind create cluster
+kind delete cluster
+
+```
+
+
+* Crie um arquivo .yml (kind-cluster.yml)
+* ```kind create cluster --config kind-cluster.yml --name cluster-mello```
+
+```
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
+~                 
+
+
+```
