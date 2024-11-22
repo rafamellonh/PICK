@@ -18,3 +18,6 @@
 ```kubectl get nodes -n kube-system -o wide``` </br>
 ```kubectl run giropops --image nginx --port 80```</br>
 ```kubectl exec -it giropops -- bash```
+
+
+* Dry-run
