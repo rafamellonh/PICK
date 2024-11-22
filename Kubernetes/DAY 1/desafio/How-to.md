@@ -20,5 +20,11 @@ mv kubectl /usr/local/bin
 ```
 
 4. Create ``` meu-primeiro-cluster.yaml ``` file
-5. Create cluster : ```kind create cluster --config meu-primeiro-cluster.yaml --name cluster-mello```
-6. Create pod : ```kubectl apply -f pod.yml ```
+5. Create cluster : 
+```
+kind create cluster --config meu-primeiro-cluster.yaml --name cluster-mello
+```
+6. Create pod : 
+```
+kubectl apply -f pod.yml 
+```
