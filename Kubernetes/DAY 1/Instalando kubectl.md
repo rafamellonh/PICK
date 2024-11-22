@@ -17,7 +17,12 @@
 ```kubectl get nodes -n kube-system``` </br>
 ```kubectl get nodes -n kube-system -o wide``` </br>
 ```kubectl run giropops --image nginx --port 80```</br>
-```kubectl exec -it giropops -- bash```
+```kubectl exec -it giropops -- bash```</br>
+```kubectl apply -f pod.yml ```
 
 
 * Dry-run
+
+```kubectl run --image nginx --port 80 giropops --dry-run=client``` </br> 
+```kubectl run --image nginx --port 80 giropops --dry-run=client -o yaml ``` </br>
+```kubectl run --image nginx --port 80 giropops --dry-run=client -o yaml > pod.yml```
