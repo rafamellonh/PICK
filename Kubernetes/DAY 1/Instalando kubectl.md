@@ -23,8 +23,8 @@
 ```kubectl apply -f pod.yml ```
 ```kubectl describe pods NAME```
 ```kubectl  attach NAME-POD -ti ```
+```kubectl  exec -ti strigus -- bash```
 ```kubectl  ```
-
 
 
 * Dry-run
