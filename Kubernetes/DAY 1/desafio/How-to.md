@@ -29,5 +29,5 @@ kind create cluster --config meu-primeiro-cluster.yaml --name cluster-mello
 ```
 6. Create pod : 
 ```
-kubectl apply -f pod.yml 
+kubectl apply -f meu-primeiro-pod.yaml
 ```
