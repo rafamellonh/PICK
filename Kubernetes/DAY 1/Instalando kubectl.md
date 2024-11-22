@@ -20,10 +20,13 @@
 ```kubectl get nodes -n kube-system -o wide``` </br>
 ```kubectl run giropops --image nginx --port 80```</br>
 ```kubectl exec -it giropops -- bash```</br>
-```kubectl apply -f pod.yml ```
-```kubectl describe pods NAME```
-```kubectl  attach NAME-POD -ti ```
-```kubectl  exec -ti strigus -- bash```
+```kubectl apply -f pod.yml ```   Cria e/ou atualiza um pode (nao pode add ou remove um container) </br>
+```kubectl delete -f pod.yml ```</br>  
+```kubectl create -f pod.yml ```  Cria um pod</br>
+```kubectl describe pods NAME```</br>
+```kubectl logs NAME```</br>
+```kubectl attach NAME-POD -ti ```</br>
+```kubectl exec -ti strigus -- bash```</br>
 ```kubectl  ```
 
 
@@ -32,3 +35,4 @@
 ```kubectl run --image nginx --port 80 giropops --dry-run=client``` </br> 
 ```kubectl run --image nginx --port 80 giropops --dry-run=client -o yaml ``` </br>
 ```kubectl run --image nginx --port 80 giropops --dry-run=client -o yaml > pod.yml```
+
