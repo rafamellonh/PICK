@@ -11,7 +11,7 @@ sudo mv ./kind /usr/local/bin/kind
 
 ```
 
-* Eh preciso instalar o Docker para usar o Kind.
+* É preciso instalar o Docker para usar o Kind.
 
 
 * Criando Cluster
