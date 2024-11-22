@@ -13,12 +13,18 @@
 
 ```kubectl get nodes ``` </br>
 ```kubectl get pods ``` </br>
+```kubectl get pods -A``` </br>
+```kubectl get pods -n kube-system``` </br>
 ```kubectl get namespace ``` </br>
 ```kubectl get nodes -n kube-system``` </br>
 ```kubectl get nodes -n kube-system -o wide``` </br>
 ```kubectl run giropops --image nginx --port 80```</br>
 ```kubectl exec -it giropops -- bash```</br>
 ```kubectl apply -f pod.yml ```
+```kubectl describe pods NAME```
+```kubectl  attach NAME-POD -ti ```
+```kubectl  ```
+
 
 
 * Dry-run
