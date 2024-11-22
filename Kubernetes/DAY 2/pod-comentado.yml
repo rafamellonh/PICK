@@ -1,0 +1,77 @@
+apiVersion: v1  # Define a versão da API usada. 'v1' é a versão estável para Pods.
+kind: Pod       # Especifica que o recurso é um Pod.
+metadata:
+  name: my-pod  # Nome do Pod.
+  namespace: default  # Namespace no qual o Pod será criado (default, caso não seja especificado).
+  labels:  # Rótulos usados para identificação e seleção por outros recursos.
+    app: my-app
+    environment: development
+  annotations:  # Informações adicionais sobre o Pod (não são usadas para seleção ou filtragem).
+    description: "Este é um Pod de exemplo completo."
+
+spec:
+  containers:  # Lista de containers dentro do Pod.
+  - name: my-container  # Nome do container.
+    image: nginx:latest  # Imagem do container (Docker Hub ou registro privado).
+    imagePullPolicy: IfNotPresent  # Política de pull da imagem (Always, IfNotPresent, Never).
+    command: ["nginx"]  # Comando para substituir o entrypoint padrão da imagem.
+    args: ["-g", "daemon off;"]  # Argumentos para o comando especificado.
+    ports:
+    - name: http  # Nome da porta (opcional, mas útil em serviços).
+      containerPort: 80  # Porta exposta pelo container.
+      protocol: TCP  # Protocolo usado (TCP ou UDP).
+    env:  # Variáveis de ambiente para o container.
+    - name: ENVIRONMENT
+      value: development
+    - name: CONFIG_PATH
+      valueFrom:
+        configMapKeyRef:
+          name: my-config  # Nome do ConfigMap.
+          key: config-path # Chave do ConfigMap.
+    resources:  # Configuração de recursos (opcional, mas recomendado).
+      requests:  # Recursos mínimos solicitados pelo container.
+        memory: "256Mi"
+        cpu: "500m"
+      limits:  # Recursos máximos permitidos para o container.
+        memory: "512Mi"
+        cpu: "1"
+    volumeMounts:  # Montagem de volumes no container.
+    - name: my-volume
+      mountPath: /usr/share/nginx/html  # Caminho no sistema de arquivos do container.
+      readOnly: true  # Define se o volume será somente leitura.
+    livenessProbe:  # Verifica se o container está "vivo".
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 3
+      periodSeconds: 5
+    readinessProbe:  # Verifica se o container está pronto para receber tráfego.
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    securityContext:  # Configuração de segurança para o container.
+      runAsUser: 1000  # UID com o qual o processo será executado.
+      runAsGroup: 1000  # GID para o processo.
+      readOnlyRootFilesystem: true  # Torna o sistema de arquivos do container somente leitura.
+  volumes:  # Definição de volumes para uso nos containers.
+  - name: my-volume
+    emptyDir: {}  # Volume temporário (outras opções incluem hostPath, persistentVolumeClaim, etc.).
+  restartPolicy: Always  # Política de reinício do Pod (Always, OnFailure, Never).
+  nodeSelector:  # Escolhe o nó no cluster onde o Pod será executado.
+    disktype: ssd
+  tolerations:  # Permite que o Pod seja executado em nós marcados com Taints.
+  - key: "example-key"
+    operator: "Equal"
+    value: "example-value"
+    effect: "NoSchedule"
+  affinity:  # Regras para definir em quais nós ou zonas o Pod pode ser agendado.
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: disktype
+            operator: In
+            values:
+            - ssd

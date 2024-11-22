@@ -25,6 +25,7 @@
 ```kubectl create -f pod.yml ```  Cria um pod</br>
 ```kubectl describe pods NAME```</br>
 ```kubectl logs NAME```</br>
+```kubectl logs POD-NAME  -c CONTAINER-NAME ```</br>
 ```kubectl attach NAME-POD -ti ```</br>
 ```kubectl exec -ti strigus -- bash```</br>
 ```kubectl  ```
