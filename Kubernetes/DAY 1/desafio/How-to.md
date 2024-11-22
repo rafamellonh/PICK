@@ -1,7 +1,10 @@
 ## Passos para executar o desafio do primeiro dia
 
 
-1. Install Docker : ``` curl -fsSl https://get.docker.com | bash ``` </br>
+1. Install Docker : 
+```
+curl -fsSl https://get.docker.com | bash 
+``` 
 2. Install Kind : 
 ```
 # For AMD64 / x86_64
