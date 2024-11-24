@@ -7,15 +7,21 @@ kubernetes ou Docker Compose. O rollout pode ser usado para inciar, verificar o 
 * No kubernetes, o comando kubectl rollout é comumente usado para gerenciar o ciclo de vida de atualizações de deployments, como a implantação de novos
 pods ou containers. Alguns dos comandos mais utilizados : 
 
+* Exibe o status de uma implantação para garantir que a nova versão da aplicação foi aplicada
 ```
-# Exibe o status de uma implantação para garantir que a nova versão da aplicação foi aplicada
 kubectl rollout status deployment/nome-do-deployment 
-
-# Reverte a implantação para a versão anterior, essencialmente realizando um rollback
+```
+* Reverte a implantação para a versão anterior, essencialmente realizando um rollback
+```
 kubectl rollout undo deployment/nome-do-deployment
 ```
 
+* Verifica todas as versões
+```
+kubectl rollout history deployment nginx-deployment
+```
 
+* Verifica as configurações da revisão 2
 ```
 kubectl rollout history deployment nginx-deployment --revision 2
 
@@ -41,5 +47,5 @@ Pod Template:
   Node-Selectors:       <none>
   Tolerations:  <none>
 
-  
+
 ```
