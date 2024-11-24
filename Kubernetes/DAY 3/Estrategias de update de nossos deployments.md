@@ -16,3 +16,24 @@ strategy:
     MaxUnavailable: 1  # permite que 1 pod esteja indisponível
 
 ```
+
+2. Recreate
+
+* Descrição: Remove todos os pods existentes antes de criar os novos.
+* Uso principal : Quando os pods antigos e novos nao podem coexistir (por exemplo, devido a conflitos de estado ou dependências criticas entre versões)
+
+```
+strategy:
+  type: Recreate
+
+```
+
+
+## Comparação entre as estratégias:
+
+# Comparação entre estratégias de atualização em Deployments no Kubernetes
+
+| Estratégia     | Disponibilidade durante atualização | Tempo de inatividade | Cenário típico de uso                                |
+|----------------|------------------------------------|----------------------|----------------------------------------------------|
+| RollingUpdate  | Alta (mantém alguns Pods ativos)  | Geralmente mínimo    | Aplicações tolerantes a mudanças graduais          |
+| Recreate       | Nenhuma (remove todos os Pods)    | Pode ser longo       | Aplicações que não suportam coexistência de versões |
