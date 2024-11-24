@@ -30,3 +30,8 @@ kubectl scale deployment/minha-aplicacao --replicas=5
 kubectl rollout undo deployment/minha-aplicacao
 ``` 
 
+* Comandos
+``` 
+kubectl describe deployments.apps nginx 
+
+``` 
