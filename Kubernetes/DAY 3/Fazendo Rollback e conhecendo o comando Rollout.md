@@ -14,3 +14,32 @@ kubectl rollout status deployment/nome-do-deployment
 # Reverte a implantação para a versão anterior, essencialmente realizando um rollback
 kubectl rollout undo deployment/nome-do-deployment
 ```
+
+
+```
+kubectl rollout history deployment nginx-deployment --revision 2
+
+
+deployment.apps/nginx with revision #3
+Pod Template:
+  Labels:       app=nginx-deployment
+        pod-template-hash=86cf486457
+  Containers:
+   nginx:
+    Image:      nginx:1.15.0
+    Port:       <none>
+    Host Port:  <none>
+    Limits:
+      cpu:      500m
+      memory:   256Mi
+    Requests:
+      cpu:      300m
+      memory:   64Mi
+    Environment:        <none>
+    Mounts:     <none>
+  Volumes:      <none>
+  Node-Selectors:       <none>
+  Tolerations:  <none>
+
+  
+```
