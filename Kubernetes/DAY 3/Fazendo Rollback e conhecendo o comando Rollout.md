@@ -21,9 +21,9 @@ kubectl rollout undo deployment/nome-do-deployment
 kubectl rollout history deployment nginx-deployment
 ```
 
-* Verifica as configurações da revisão 2
+* Verifica as configurações da revisão 3
 ```
-kubectl rollout history deployment nginx-deployment --revision 2
+kubectl rollout history deployment nginx-deployment --revision 3
 
 
 deployment.apps/nginx with revision #3
@@ -33,6 +33,35 @@ Pod Template:
   Containers:
    nginx:
     Image:      nginx:1.15.0
+    Port:       <none>
+    Host Port:  <none>
+    Limits:
+      cpu:      500m
+      memory:   256Mi
+    Requests:
+      cpu:      300m
+      memory:   64Mi
+    Environment:        <none>
+    Mounts:     <none>
+  Volumes:      <none>
+  Node-Selectors:       <none>
+  Tolerations:  <none>
+
+
+```
+
+* Verifica as configurações da revisão 4
+```
+kubectl rollout history deployment nginx-deployment --revision 4
+
+
+deployment.apps/nginx with revision #4
+Pod Template:
+  Labels:       app=nginx-deployment
+        pod-template-hash=7c45d4c56d
+  Containers:
+   nginx:
+    Image:      nginx:1.16.0
     Port:       <none>
     Host Port:  <none>
     Limits:
