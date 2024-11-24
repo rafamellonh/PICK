@@ -78,3 +78,8 @@ Pod Template:
 
 
 ```
+
+* Fazer o rollback
+```
+kubectl rollout undo deployment nginx-deployment --to-revision 3
+```
