@@ -13,6 +13,7 @@ kubectl apply -f deployment.yml
 * Verificar deployments :
 ``` 
 kubectl get deployments
+kubectl get deployments.NOME-DEPLOYMENT -o yaml
 ``` 
 
 * Atualizar um deployment :
