@@ -6,6 +6,7 @@ metadata: # contem informações identificadores sobre o recurso
   labels: # define rótulos associados ao deployment. O rotulo app:  pode ser usado para agrupar ou identificar os recursos selecionados
     app: nginx-deployment
   name: nginx # Define o nome do deployment como nginx
+  namespace: giropops # namespace onde o deployment sera criado
 spec: # define as especificações desejadas para o deployment
   replicas: 3  # especifica o numero de replicas do pod que o deployment deve manter. aqui sao 3 replicas
   selector: # define como o deployment encontra os pods gerenciados

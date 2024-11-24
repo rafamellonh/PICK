@@ -33,5 +33,6 @@ kubectl rollout undo deployment/minha-aplicacao
 * Comandos
 ``` 
 kubectl describe deployments.apps nginx 
+kubectl create deployment --image nginx --replicas 5 nginx01-deployment --dry-run=client -o yaml > new-deployment.yaml
 
 ``` 
