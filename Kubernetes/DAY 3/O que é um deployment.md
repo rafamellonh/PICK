@@ -1,6 +1,6 @@
 ## O que é um deployment?
 
-* Deployment é um recurso que permite gerenciar a implantacao e o ciclo de vida de aplicacoes containerizadas.
+* Deployment é um recurso que permite gerenciar a implantação e o ciclo de vida de aplicações conteinerizadas.
 * Fornece uma maneira declarativa de descrever o estado desejado para seus pods e replicas.
 
 ### Principais funções :
