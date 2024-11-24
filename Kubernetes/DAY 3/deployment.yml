@@ -12,7 +12,11 @@ spec: # define as especificações desejadas para o deployment
   selector: # define como o deployment encontra os pods gerenciados
     matchLabels:  # garante que apenas os pods com o rotulo app : nginx-deployment sejam gerenciados por este deployment
       app: nginx-deployment
-  strategy: {}  # controla como o deployment aplica atualizações nos pods. 
+  strategy:  # controla como o deployment aplica atualizações nos pods. 
+    type: RollingUpdate # define a estrategia de atualização como rollingupdate
+    RollingUpdate: # Especifica parâmetros para controle granular da atualização
+      maxSurge: 1 # Durante a atualização, permite criar 1 pod extra além do numero desejado de replicas
+      maxUnavailable: 2 # permite que ate 2 pods estejam indisponíveis durante a atualização
 # End confg deployment
 # Start config templates para os pods
   template:  # define o modelo usado para criar os pods
