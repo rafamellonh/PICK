@@ -8,8 +8,8 @@ Este programa intensivo é ministrado pelos melhores profissionais do mercado e 
 ### 🛠️ O que o curso oferece:
 - 📦 **Treinamentos Descomplicados**: Docker, Kubernetes e GitOps com ArgoCD.
 - 🎓 **Preparação para Certificações**: Foco nas certificações CKA/CKAD, incluindo simulados práticos.
-- 📡 **Aulas ao Vivo**: 12 encontros para aprendizado em tempo real com instrutores especializados.
-- 🧠 **Mentorias de Mercado**: 10 sessões com profissionais de referência, abordando temas técnicos, LinkedIn e criação de conteúdo.
+- 📡 **Aulas ao Vivo**: Encontros para aprendizado em tempo real com instrutores especializados.
+- 🧠 **Mentorias de Mercado**: Sessões com profissionais de referência, abordando temas técnicos, LinkedIn e criação de conteúdo.
 - 🤝 **Networking Profissional**: Conexão com os melhores profissionais do mercado.
 - 📝 **Simulados de Entrevistas**: Experiência simulada com feedback detalhado.
 - 🏆 **Certificação Internacional**: Certificado de alta qualidade, reconhecido globalmente.
