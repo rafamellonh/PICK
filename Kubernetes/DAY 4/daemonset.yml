@@ -27,10 +27,10 @@ spec:
         - name: sys
           mountPath: /host/sys
           readOnly: true
-    volumes: 
-    - name: proc
-      hostPath:
-        path: /proc
-    - name: sys
-      hostPath:
-        path: /sys
+      volumes:
+      - name: proc
+        hostPath:
+          path: /proc
+      - name: sys
+        hostPath:
+          path: /sys
