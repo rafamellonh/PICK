@@ -14,3 +14,26 @@
         * É usada para verificar se o container iniciou corretamente.
         * Se a Startup probe falhar, as outras (Liveness e Readiness) assumem o controle
         * É usada quando o aplicativo precisa de mais tempo para inicializar do que seria considerado padrão pelas Liveness ou Readiness probe.        
+* Elas sao usadas para containers.
+
+1. Liveness Probe 
+```
+containers:
+      - image: nginx
+        name: nginx
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+          requests:
+            cpu: "300m"
+            memory: "128Mi"
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3 
+
+```
