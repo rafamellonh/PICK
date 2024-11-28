@@ -28,22 +28,34 @@
           requests:
             cpu: "300m"
             memory: "128Mi"
-        livenessProbe: # Aqui é onde vamos adicionar a nossa livenessProbe
-          tcpSocket: # Aqui vamos utilizar o tcpSocket, onde vamos se conectar ao container através do protocolo TCP
-            port: 80 # Qual porta TCP vamos utilizar para se conectar ao container
-          initialDelaySeconds: 10 # Quantos segundos vamos esperar para executar a primeira verificação
-          periodSeconds: 10 # A cada quantos segundos vamos executar a verificação
-          timeoutSeconds: 5 # Quantos segundos vamos esperar para considerar que a verificação falhou
-          failureThreshold: 3 # Quantos falhas consecutivas vamos aceitar antes de reiniciar o container
-```
-```     livenessProbe: # Aqui é onde vamos adicionar a nossa livenessProbe
-          httpGet: # Aqui vamos utilizar o httpGet, onde vamos se conectar ao container através do protocolo HTTP
-            path: / # Qual o endpoint que vamos utilizar para se conectar ao container
-            port: 80 # Qual porta TCP vamos utilizar para se conectar ao container
-          initialDelaySeconds: 10 # Quantos segundos vamos esperar para executar a primeira verificação
-          periodSeconds: 10 # A cada quantos segundos vamos executar a verificação
-          timeoutSeconds: 5 # Quantos segundos vamos esperar para considerar que a verificação falhou
-          failureThreshold: 3 # Quantos falhas consecutivas vamos aceitar antes de reiniciar o container
+        livenessProbe: # Onde definimos a nossa probe de vida
+          exec: # O tipo exec é utilizado quando queremos executar algo dentro do container.
+            command: # Onde iremos definir qual comando iremos executar
+              - curl
+              - -f
+              - http://localhost:80/
+          initialDelaySeconds: 10 # O tempo que iremos esperar para executar a primeira vez a probe
+          periodSeconds: 10 # De quanto em quanto tempo iremos executar a probe
+          timeoutSeconds: 5 # O tempo que iremos esperar para considerar que a probe falhou
+          successThreshold: 1 # O número de vezes que a probe precisa passar para considerar que o container está pronto
+          failureThreshold: 3 # O número de vezes que a probe precisa falhar para considerar que o container não está pronto
+        readinessProbe: # Onde definimos a nossa probe de prontidão
+          httpGet: # O tipo de teste que iremos executar, neste caso, iremos executar um teste HTTP
+            path: / # O caminho que iremos testar
+            port: 80 # A porta que iremos testar
+          initialDelaySeconds: 10 # O tempo que iremos esperar para executar a primeira vez a probe
+          periodSeconds: 10 # De quanto em quanto tempo iremos executar a probe
+          timeoutSeconds: 5 # O tempo que iremos esperar para considerar que a probe falhou
+          successThreshold: 1 # O número de vezes que a probe precisa passar para considerar que o container está pronto
+          failureThreshold: 3 # O número de vezes que a probe precisa falhar para considerar que o container não está pronto
+        startupProbe: # Onde definimos a nossa probe de inicialização
+          tcpSocket: # O tipo de teste que iremos executar, neste caso, iremos executar um teste TCP
+            port: 80 # A porta que iremos testar
+          initialDelaySeconds: 10 # O tempo que iremos esperar para executar a primeira vez a probe
+          periodSeconds: 10 # De quanto em quanto tempo iremos executar a probe
+          timeoutSeconds: 5 # O tempo que iremos esperar para considerar que a probe falhou
+          successThreshold: 1 # O número de vezes que a probe precisa passar para considerar que o container está pronto
+          failureThreshold: 3 # O número de vezes que a probe precisa falhar para considerar que o container não está pronto
 
 
 ```
