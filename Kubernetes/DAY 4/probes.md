@@ -28,12 +28,22 @@
           requests:
             cpu: "300m"
             memory: "128Mi"
-        livenessProbe:
-          tcpSocket:
-            port: 80
-          initialDelaySeconds: 10
-          periodSeconds: 10
-          timeoutSeconds: 5
-          failureThreshold: 3 
+        livenessProbe: # Aqui é onde vamos adicionar a nossa livenessProbe
+          tcpSocket: # Aqui vamos utilizar o tcpSocket, onde vamos se conectar ao container através do protocolo TCP
+            port: 80 # Qual porta TCP vamos utilizar para se conectar ao container
+          initialDelaySeconds: 10 # Quantos segundos vamos esperar para executar a primeira verificação
+          periodSeconds: 10 # A cada quantos segundos vamos executar a verificação
+          timeoutSeconds: 5 # Quantos segundos vamos esperar para considerar que a verificação falhou
+          failureThreshold: 3 # Quantos falhas consecutivas vamos aceitar antes de reiniciar o container
+```
+```     livenessProbe: # Aqui é onde vamos adicionar a nossa livenessProbe
+          httpGet: # Aqui vamos utilizar o httpGet, onde vamos se conectar ao container através do protocolo HTTP
+            path: / # Qual o endpoint que vamos utilizar para se conectar ao container
+            port: 80 # Qual porta TCP vamos utilizar para se conectar ao container
+          initialDelaySeconds: 10 # Quantos segundos vamos esperar para executar a primeira verificação
+          periodSeconds: 10 # A cada quantos segundos vamos executar a verificação
+          timeoutSeconds: 5 # Quantos segundos vamos esperar para considerar que a verificação falhou
+          failureThreshold: 3 # Quantos falhas consecutivas vamos aceitar antes de reiniciar o container
+
 
 ```
