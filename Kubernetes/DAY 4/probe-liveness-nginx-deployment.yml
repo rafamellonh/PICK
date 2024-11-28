@@ -26,7 +26,8 @@ spec:
             cpu: "300m"
             memory: "128Mi"
         livenessProbe:
-          tcpSocket:
+          httpGet:
+            path: /
             port: 80
           initialDelaySeconds: 10
           periodSeconds: 10
