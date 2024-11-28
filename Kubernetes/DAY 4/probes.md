@@ -18,7 +18,7 @@
 
 1. Liveness Probe 
 ```
-containers:
+      containers:
       - image: nginx
         name: nginx
         resources:
