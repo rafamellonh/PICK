@@ -27,3 +27,13 @@
     * Tolerância a falhas
     * Gerenciamento simplificado
     * Portabilidade
+
+* Configuracoes minimimas
+    * Linux
+    * 2G de RAM
+    * 2 CPUs ou mais
+    * Portas : 
+        * 6443
+        * 10250-10255
+        * 30000-32767
+        * 2379-2380
