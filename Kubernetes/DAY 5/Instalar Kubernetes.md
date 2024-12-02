@@ -74,4 +74,19 @@ sudo systemctl status containerd
 systemctl enable --now kubelet
 ```
 
+* Abrir portas no firewall :
 
+```
+sudo ufw status
+sudo ufw enable
+sudo ufw reload
+
+```
+
+
+```
+sudo ufw allow 6443/tcp
+sudo ufw allow 10250:10255/tcp
+sudo ufw allow 6783/tcp
+
+```
