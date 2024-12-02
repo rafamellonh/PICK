@@ -90,3 +90,17 @@ sudo ufw allow 10250:10255/tcp
 sudo ufw allow 6783/tcp
 
 ```
+
+* Inicializar o cluster e o admin.conf (somente no control-plane)
+
+```
+sudo kubeadm init --pod-network-cidr=10.10.0.0/16 --apiserver-advertise-address=192.168.1.201
+```
+
+* você verá uma mensagem informando que o cluster foi inicializado com sucesso. Além disso, você verá um comando para configurar o acesso ao cluster com o kubectl. Copie e cole esse comando em seu terminal:  (somente no control-plane)
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
