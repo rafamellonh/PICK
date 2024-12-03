@@ -7,3 +7,8 @@
     * Flexibilidade
     * Parâmetros Customizáveis
     * Politicas de retenção 
+
+* Comandos :
+```
+kubectl get storageclass
+```
