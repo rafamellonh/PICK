@@ -125,3 +125,21 @@ Then you can join any number of worker nodes by running the following on each as
 kubeadm join 192.168.1.201:6443 --token iykm23.e2rzuz1fczhxvewu \
         --discovery-token-ca-cert-hash sha256:a69c226844a506d8c0287386c1f3155e289ffc8db0da72c206beb16311ae24f9 
 ```
+
+* Adicionar nodes workers
+```
+sudo kubeadm join 192.168.1.201:6443 --token uzwc7m.auystlt1hyu60qlb \
+        --discovery-token-ca-cert-hash sha256:a69c226844a506d8c0287386c1f3155e289ffc8db0da72c206beb16311ae24f9 
+```
+
+* Criar novo token e hash :
+
+```
+kubeadm token create
+
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | \
+openssl rsa -pubin -outform der 2>/dev/null | \
+openssl dgst -sha256 -hex | \
+sed 's/^.* //'
+
+```
