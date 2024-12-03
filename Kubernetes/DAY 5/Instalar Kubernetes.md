@@ -143,3 +143,10 @@ openssl dgst -sha256 -hex | \
 sed 's/^.* //'
 
 ```
+
+* Instalar o CNI - Weave Net
+
+```
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+
+```
