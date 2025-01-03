@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  goaccess:
+    image: allinurl/goaccess:latest
+    container_name: goaccess
+    volumes:
+      - ./logs:/logs/             # Pasta local onde seus logs estão armazenados
+      - ./data:/config/           # Persistência de dados (opcional)
+    ports:
+      - "7890:7890"              # Porta para acessar o dashboard via navegador
+    command:
+      goaccess /logs/server.log.*
+      --log-format=COMBINED
+      --real-time-html
+      --output=/config/report.html
+    restart: unless-stopped
