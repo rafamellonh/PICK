@@ -27,7 +27,10 @@ net.ipv4.ip_forward                 = 1
 EOF
 ```
 * Reload config
+```
 sudo sysctl --system
+```
+
 
 * Instalando pacotes:
 ```
