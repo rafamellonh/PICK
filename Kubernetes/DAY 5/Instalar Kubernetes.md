@@ -1,14 +1,19 @@
 ## Install Kubernetes
 
+* Instalar todos os componentes em todos os nodes, mas o kubeadm init em diante, somente no node master.
+
 * Desabilitar swap :
 ```
 sudo swapoff -a
 vim /etc/fstab  (comentar linha do swap)
 ```
 
-* Carregar os módulos do Kernel, adicione os moduloes overlay e br_netfilter no arquivo
+* Carregar os módulos do Kernel, adicione os modules overlay e br_netfilter no arquivo
 ```
 sudo vim /etc/modules-load.d/k8s.cond
+
+modprobe overlay
+modprobe br_netfilter
 
 ```
 
@@ -97,7 +102,7 @@ sudo ufw allow 6783/tcp
 
 ```
 
-* Inicializar o cluster e o admin.conf (somente no control-plane)
+* Inicializar o cluster e o admin.conf (SOMENTE no control-plane)
 
 ```
 sudo kubeadm init --pod-network-cidr=10.10.0.0/16 --apiserver-advertise-address=192.168.1.201
