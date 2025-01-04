@@ -15,4 +15,4 @@
 
 * Nomeação Estável (Stable Network Identity) : Cada pod tem um nome DNS estável, facilitando a comunicação entre eles em uma aplicação distribuída. Por exemplo, se o nome do StatefulSet é meu-app e o namespace é default, o pod meu-app-0 pode ser acessado através de meu-app-0-.meu-app.default.svc.cluster.local.
 
-* Rolling Updates Controlados : O StatefulSet permite atualizacoes controladas, garantindo que a atualizacao de um pod seja concluida antes de prosseguir para o proximo. Isso é utili para manter a consistencia em aplicativos com estado
+* Rolling Updates Controlados : O StatefulSet permite atualizações controladas, garantindo que a atualização de um pod seja concluída antes de prosseguir para o proximo. Isso é util para manter a consistência em aplicativos com estado
