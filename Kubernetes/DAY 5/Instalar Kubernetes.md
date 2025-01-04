@@ -3,6 +3,7 @@
 * Desabilitar swap :
 ```
 sudo swapoff -a
+vim /etc/fstab  (comentar linha do swap)
 ```
 
 * Carregar os módulos do Kernel, adicione os moduloes overlay e br_netfilter no arquivo
