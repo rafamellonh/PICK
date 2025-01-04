@@ -155,7 +155,7 @@ sed 's/^.* //'
 
 ```
 
-* Instalar o CNI - Weave Net (use wget)
+* Instalar o CNI - Weave Net (use wget) (SEM ELE, OS WORKES FICARAM COMO NotReady)
 
 ```
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
